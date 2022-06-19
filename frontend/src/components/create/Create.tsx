@@ -4,7 +4,6 @@ import { ethers } from "ethers";
 import { NFTStorage, File, Blob } from "nft.storage";
 import AudioContractABI from "../../utils/audio.json";
 import "./create.css";
-import { apiKey } from "../../utils/constants";
 
 export type draftAlbum = {
   name: string;
@@ -31,6 +30,8 @@ export default function Create({ address }: Props) {
   const [songCoverView, setSongCoverView] = useState<any>();
   const [songPrice, setSongPrice] = useState<number>();
   const [publishState, setPublishState] = useState<string>("publish");
+
+  const apiKey = process.env.REACT_APP_API_KEY;
 
   const onImageChange = (event: any) => {
     if (event.target.files && event.target.files[0]) {

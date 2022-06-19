@@ -10,6 +10,8 @@ import MyNFTs from "./pages/myNFTs/MyNFTs";
 import { appId, serverUrl } from "./utils/constants";
 
 function App() {
+  const serverUrl = process.env.REACT_APP_SERVER_URL;
+  const appId = process.env.REACT_APP_APPID;
   return (
     <UserProvider>
       <MoralisProvider serverUrl={serverUrl} appId={appId}>

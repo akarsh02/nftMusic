@@ -7,7 +7,6 @@ import { ethers } from "ethers";
 import AudiopiumContractABI from "../../utils/audiopium.json";
 import { NFTStorage, File, Blob } from "nft.storage";
 import { Navigate, Link } from "react-router-dom";
-import { apiKey, contractAddress } from "../../utils/constants";
 
 type ArtistDetails = {
   name: string;
@@ -29,6 +28,9 @@ export default function CreateProfile() {
   const [createStatus, setCreateStatus] = useState<string>();
 
   const { userCTX, connectWalletCTX } = useUser();
+
+  const apiKey = process.env.REACT_APP_API_KEY;
+  const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
   const onProfilePictureChange = (event: any) => {
     if (event.target.files && event.target.files[0]) {

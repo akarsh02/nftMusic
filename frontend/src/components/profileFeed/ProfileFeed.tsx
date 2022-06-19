@@ -1,5 +1,4 @@
 import { ethers } from "ethers";
-import { contractAddress } from "../../utils/constants";
 import AudioContractABI from "../../utils/audio.json";
 import { useEffect, useState } from "react";
 import { StackTypeMap } from "@mui/material";

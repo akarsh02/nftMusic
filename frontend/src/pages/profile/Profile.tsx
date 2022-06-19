@@ -10,7 +10,6 @@ import ContractABI from "../../utils/audiopium.json";
 import { ethers } from "ethers";
 import ProfileSection from "../../components/profileSection/ProfileSection";
 import ProfileCreate from "../../components/profileCreate/ProfileCreate";
-import { contractAddress } from "../../utils/constants";
 
 type ProfileStatus = "Loading" | "Profile" | "User";
 
@@ -19,6 +18,8 @@ export default function Profile() {
   const [feed, setFeed] = useState("profile");
   const address = useParams().address;
   const [showProfile, setShowProfile] = useState(false);
+
+  const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
   useEffect(() => {
     const getContractAddress = async () => {
