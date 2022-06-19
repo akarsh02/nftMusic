@@ -4,7 +4,6 @@ import Create from "../create/Create";
 import { ethers } from "ethers";
 import AudioContractABI from "../../utils/audio.json";
 import { useEffect, useState } from "react";
-import { transfromArtistData } from "../../utils/constants";
 import { useUser } from "../../context/userContext";
 import { useParams } from "react-router";
 
