@@ -1,0 +1,27 @@
+.createDraftCard{
+    display:flex;
+    padding: 10px;
+}
+
+.draftCardImageFile{
+    width:200px;
+}
+
+.draftCardDetails{
+    padding:10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.draftCardDetailsButtonRow{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.draftCardDetailsButton{
+    padding: 10px;
+    width: 120px;
+    margin: 10px 10px 10px 0px;
+}

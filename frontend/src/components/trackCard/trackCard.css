@@ -1,0 +1,21 @@
+.createTrackCard{
+    display: flex;
+}
+
+.createTrackDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    width: 400px;
+}
+
+.createTrackSave{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.createTrackSaveButton{
+    padding: 5px;
+    width: 100px;
+}

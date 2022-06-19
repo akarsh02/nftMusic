@@ -1,0 +1,32 @@
+.homefeedContainer{
+    height: 90vh;
+    width: 1000px;
+    margin: auto;
+}
+
+.homefeedBanner{
+    height: 400px;
+    margin: 20px auto;
+    border-style: solid;
+    border-radius: 50px;
+    background: #4B79A1;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #283E51, #4B79A1);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #283E51, #4B79A1); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+}
+
+.homefeedTitle{
+    margin-top: 110px;
+    text-align: center;
+    color: white;
+    font-size: 70px;
+    font-weight: bolder;
+}
+
+.homefeedSubTitle{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+}

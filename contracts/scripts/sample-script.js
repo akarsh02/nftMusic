@@ -13,13 +13,12 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
-  // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const AudiopiumContract = await hre.ethers.getContractFactory("Audiopium");
+  const audiopium = await AudiopiumContract.deploy();
 
-  await greeter.deployed();
+  await audiopium.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("Audiopium deployed to:", audiopium.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

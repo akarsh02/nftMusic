@@ -1,0 +1,77 @@
+.createProfileContainer{
+    height: 100%;
+    width: 100%;   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.createProfileBox{
+    width: 400px;
+    padding: 20px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-style: solid;
+    border-radius: 10px;
+}
+
+.createProfileTitle{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+.createProfileTextField{
+    margin-top: 20px;
+    width: 100%;
+}
+
+.createProfileProfilePicture{
+    width: 100%;
+    text-align: center;
+}
+
+.createProfileProfilePicture img{
+    margin: 20px 0px;
+    width: 50%;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: lightgrey;
+}
+
+.createProfileCover{
+    width: 100%;
+    text-align: center;
+}
+
+.createProfileCover img{
+    margin: 20px 0px;
+    width: 90%;
+    border-style: solid;
+    border-radius: 10px;
+    border-color: lightgrey;
+}
+
+.createProfileSaveButton{
+    margin-top: 20px
+}
+
+.createProfileConnect{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 300px;
+}
+
+.createProfileConnect div{
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 20px;
+}
+
+.createProfileConnect button{
+    padding: 10px;
+}
+

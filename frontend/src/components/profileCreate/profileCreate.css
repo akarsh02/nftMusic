@@ -1,0 +1,32 @@
+.profileCreateContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 100vh;
+}
+
+.profileCreateBox{
+    margin-top: 200px;
+    height: 300px;
+    text-align: center;
+}
+
+.profileCreateTitle{
+    font-size: xx-large;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.profileCreateTitleSub{
+    font-size: x-large;
+    font-weight: bold;
+    margin: 20px 0px;
+}
+
+.profileCreateButton{
+    padding: 10px 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+    cursor: pointer;
+}
