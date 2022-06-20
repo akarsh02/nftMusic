@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "./libraries/Base64.sol";
 
-contract Audio is ERC1155, Ownable {
+contract Artist is ERC1155, Ownable {
     struct Artist {
         string artistName;
         string intro;
