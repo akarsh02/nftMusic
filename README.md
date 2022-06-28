@@ -2,8 +2,8 @@
 
 ### Publish your audio content to the web3.
 
-Audiopium allows music artists to create NFTs that includes their audio creations as metadata. 
-Artists can deploy ERC-1155 smart contract using the frontend and add audio tracks to the smart contract. Fans are able to buy music NFTs of their favourite artists and listen to them. 
+Audiopium is a no-code smart contracts platform for music artists to create music NFTs. 
+Artists can deploy ERC-1155 smart contract using the frontend and add audio tracks as tokens to the smart contract. Fans able to buy music NFTs of their favourite artists and listen to them. 
 
 ![audiopium](https://i.ibb.co/XWG9sqp/audiopium.png)
 
@@ -18,11 +18,15 @@ React, Solidity, Hardhat, NFT.storage , Moralis Web3 API
 
 Audiopium smart contract deployes Artist contract and keep track of all artist contracts deployed.
 
+Polygon Testnet - [0xfaa4AFdd8De9aA11203D04049AFBd691FCed7Ac9](https://mumbai.polygonscan.com/address/0xfaa4AFdd8De9aA11203D04049AFBd691FCed7Ac9)
+
 
 - Artist contract
 
 
 Artist contract is a ERC-1155 NFT smart contract that can be deployed by interacting with Audiopium contract. Each artist can have a seperate Artist contract. This contract stores details such as artist name and intro. Artists can add music tracks as tokenURIs. Fans can mint ERC-1155 NFTs that includes audio metadata.
+
+Polygon Testnet - [0xa213a2B1Ed4fdC755317633F6cBa8eCbA9aB6625](https://mumbai.polygonscan.com/address/0xa213a2B1Ed4fdC755317633F6cBa8eCbA9aB6625)
 
 ![smart contracts](https://i.ibb.co/rmG3KKN/Untitled-Diagram-drawio-2.png)
 
