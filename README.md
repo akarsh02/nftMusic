@@ -22,7 +22,7 @@ Audiopium smart contract deployes Artist contract and keep track of all artist c
 - Artist contract
 
 
-Artist contract is a ERC-1155 smart contract deployed by Audiopium contract. Each artist can have a seperate Artist contract. This contract stores details such as artist name and intro. Artists can add music tracks as tokenURIs. Fans can mint ERC-1155 NFTs that includes audio metadata.
+Artist contract is a ERC-1155 NFT smart contract that can be deployed by interacting with Audiopium contract. Each artist can have a seperate Artist contract. This contract stores details such as artist name and intro. Artists can add music tracks as tokenURIs. Fans can mint ERC-1155 NFTs that includes audio metadata.
 
 ![smart contracts](https://i.ibb.co/rmG3KKN/Untitled-Diagram-drawio-2.png)
 
@@ -45,11 +45,11 @@ function createArtistContract(
 Artists can add metadata URI to their instance of Artist.sol contract
 ```solidity
 // Artist.sol
-function setURI(string memory _uri, uint256 _price) external onlyOwner {
-    tokenURI[songCounter] = _uri;
-    tokenPrice[songCounter] = _price * 10e18;
-    songCounter = songCounter + 1;
-    emit URI(_uri, songCounter);
+function setURI(string memory _uri, uint256 _price) external onlyOwner 
+    tokenURI[_songCounter.current()] = _uri;
+    tokenPrice[_songCounter.current()] = _price * 10e18;
+    _songCounter.increment();
+    emit URI(_uri, _songCounter.current());
 }
 ```
 
@@ -90,7 +90,7 @@ const testnetNFTs = await Web3Api.Web3API.account.getNFTs({
 
 To run the app add .env to frontend folder with following values
 ```
-REACT_APP_CONTRACT_ADDRESS = 0x1c6aBb29d7125973f6aEE6E165Dcf28E47755932
+REACT_APP_CONTRACT_ADDRESS = 0xfaa4AFdd8De9aA11203D04049AFBd691FCed7Ac9
 REACT_APP_API_KEY = REPLACE_WITH_NFT_STORAGE_API_KEY
 REACT_APP_SERVER_URL = REPLACE_WITH_MORALIS_SERVER_URL
 REACT_APP_APPID = REPLACE_WITH_MORALIS_SERVER_APPID
