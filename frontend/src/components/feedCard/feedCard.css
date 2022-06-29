@@ -3,7 +3,7 @@
     background-color: rgb(180, 160, 254);
     border-radius: 50px;
     border-style: solid;
-    padding: 10px 0px;
+    padding: 10px
 }
 
 .feedCardTitle{
@@ -15,7 +15,7 @@
 
 .feedCardCards{
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-content: space-around;
     margin-bottom: 20px;
 }

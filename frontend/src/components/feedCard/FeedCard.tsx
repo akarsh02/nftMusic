@@ -1,4 +1,4 @@
-import AudioCard from "../audioCard/AudioCard";
+import TrendingAudioCard from "../trendingAudioCard/TrendingAudioCard";
 import "./feedCard.css";
 
 export default function FeedCard() {
@@ -6,37 +6,38 @@ export default function FeedCard() {
     <div className="feedCardContainer">
       <div className="feedCardTitle">Trending 🚀</div>
       <div className="feedCardCards">
-        <AudioCard
+        <TrendingAudioCard
           mode="view"
           id={1}
-          name={"Perfectly Imperfect"}
+          name={"Snoopy"}
           address={""}
-          image={"https://i.imgur.com/hFxlFhJ.png"}
-          song={"https://ipfs.dweb.link/blob"}
+          image={"https://i.imgur.com/gX0mcjl.jpeg"}
+          profile={"https://ipfs.dweb.link/blob"}
         />
-        <AudioCard
+        <TrendingAudioCard
           mode="view"
           id={1}
-          name={"Hello Summer"}
+          name={"Jane Doe"}
           address={""}
-          image={"https://i.imgur.com/jhlv3V1.png"}
-          song={"https://ipfs.dweb.link/blob"}
+          image={"https://i.imgur.com/sLIOWdu.jpeg"}
+          profile={"https://ipfs.dweb.link/blob"}
         />
-        <AudioCard
+        <TrendingAudioCard
           mode="view"
           id={1}
-          name={"Party Time"}
+          name={"Retro Moon"}
           address={""}
-          image={"https://i.imgur.com/P4hHD1D.png"}
-          song={"https://ipfs.dweb.link/blob"}
+          image={"https://i.imgur.com/LG6wyFM.jpeg"}
+          profile={"https://ipfs.dweb.link/blob"}
         />
-        <AudioCard
+
+        <TrendingAudioCard
           mode="view"
           id={1}
-          name={"Happy Day"}
+          name={"DJ Squid"}
           address={""}
-          image={"https://i.imgur.com/CcPU9a7.png"}
-          song={"https://ipfs.dweb.link/blob"}
+          image={"https://i.imgur.com/sJsFdUB.jpeg"}
+          profile={"https://ipfs.dweb.link/blob"}
         />
       </div>
     </div>

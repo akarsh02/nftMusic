@@ -160,7 +160,10 @@ export default function Create({ address }: Props) {
         </div>
         <div className="createAddNewTrack">
           {publishState == "publish" && (
-            <button className="createAddNewTrackButton" onClick={uploadSong}>
+            <button
+              className="createAddNewTrackButton profileButton"
+              onClick={uploadSong}
+            >
               Publish Song
             </button>
           )}

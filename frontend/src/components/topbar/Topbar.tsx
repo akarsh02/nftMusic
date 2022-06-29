@@ -69,7 +69,7 @@ export default function Topbar() {
             <button className="topbarConnectButton">{userCTX.address}</button>
           ) : (
             <button className="topbarConnectButton" onClick={connectWallet}>
-              Connect
+              Connect Metamask
             </button>
           )}
         </div>

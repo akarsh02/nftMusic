@@ -2,6 +2,7 @@ import "./audioCard.css";
 import { ethers } from "ethers";
 import AudioContractABI from "../../utils/artist.json";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+import { useUser } from "../../context/userContext";
 
 type Props = {
   name: string;
@@ -21,6 +22,7 @@ export default function AudioCard({
   song,
   handlePlayClick,
 }: Props) {
+  const { userCTX } = useUser();
   const mint = async (id: number) => {
     try {
       const { ethereum } = window;
@@ -56,14 +58,19 @@ export default function AudioCard({
         </div>
         <div className="audioCardText">
           <div className="audioCardTitle text-lg font-medium">{name}</div>
-          <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
-            {mode == "mint" && <button onClick={() => mint(id)}>Mint</button>}
-            {mode == "view" && (
-              <button onClick={() => handlePlayClick(id)}>
+
+          {userCTX?.address && mode === "mint" && (
+            <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
+              <button onClick={() => mint(id)}>Mint</button>
+            </div>
+          )}
+          {mode === "view" && (
+            <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
+              <button onClick={() => mint(id)}>
                 <PlayCircleIcon />
               </button>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
