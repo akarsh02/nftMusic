@@ -2,7 +2,7 @@ import "./profileSection.css";
 import ProfileFeed from "../profileFeed/ProfileFeed";
 import Create from "../create/Create";
 import { ethers } from "ethers";
-import AudioContractABI from "../../utils/audio.json";
+import AudioContractABI from "../../utils/artist.json";
 import { useEffect, useState } from "react";
 import { useUser } from "../../context/userContext";
 import { useParams } from "react-router";

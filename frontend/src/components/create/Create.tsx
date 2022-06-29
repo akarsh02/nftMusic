@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextField, Input, Button } from "@mui/material";
 import { ethers } from "ethers";
 import { NFTStorage, File, Blob } from "nft.storage";
-import AudioContractABI from "../../utils/audio.json";
+import AudioContractABI from "../../utils/artist.json";
 import "./create.css";
 
 export type draftAlbum = {
@@ -89,7 +89,10 @@ export default function Create({ address }: Props) {
     const metadataCID = await storeData();
     const newSong = await addToSmartContract(metadataCID);
     setPublishState("completed");
+    console.log("metadatacid" + metadataCID);
   };
+
+  // ipfs://bafyreihf4xio4ce4bf3xtrhq6i4zfsgij77sh5kuxpzbqfwroqmte62rzm/metadata.json
 
   return (
     <div className="createContainer">

@@ -1,5 +1,5 @@
 import { ethers } from "ethers";
-import AudioContractABI from "../../utils/audio.json";
+import AudioContractABI from "../../utils/artist.json";
 import { useEffect, useState } from "react";
 import { StackTypeMap } from "@mui/material";
 import AudioCard from "../../components/audioCard/AudioCard";

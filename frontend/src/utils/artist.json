@@ -170,7 +170,7 @@
     },
     {
       "inputs": [],
-      "name": "artist",
+      "name": "artistDetails",
       "outputs": [
         {
           "internalType": "string",
@@ -271,7 +271,7 @@
               "type": "string"
             }
           ],
-          "internalType": "struct Audio.Artist",
+          "internalType": "struct Artist.ArtistData",
           "name": "",
           "type": "tuple"
         }
@@ -563,19 +563,6 @@
       "name": "setURI",
       "outputs": [],
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "inputs": [],
-      "name": "songCounter",
-      "outputs": [
-        {
-          "internalType": "uint256",
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "stateMutability": "view",
       "type": "function"
     },
     {

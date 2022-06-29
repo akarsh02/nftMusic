@@ -1,6 +1,6 @@
 import "./audioCard.css";
 import { ethers } from "ethers";
-import AudioContractABI from "../../utils/audio.json";
+import AudioContractABI from "../../utils/artist.json";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 
 type Props = {
