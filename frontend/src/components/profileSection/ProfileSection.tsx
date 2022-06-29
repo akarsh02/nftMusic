@@ -80,14 +80,18 @@ export default function ProfileSection({ feed, setFeed, address }: Props) {
             />
           </div>
           <div className="profileInfo">
-            <div className="profileInfoName">{artistDetails?.name}</div>
-            <span className="profileInfoDesc">{artistDetails?.intro}</span>
+            <div className="profileInfoName font-bold">
+              {artistDetails?.name}
+            </div>
+            <span className="profileInfoDesc text-lg font-semibold">
+              {artistDetails?.intro}
+            </span>
             <span className="profileInfoDesc">
               {"Audiopium contract " + address}
             </span>
           </div>
           {showAsUser && (
-            <div className="profileButtons">
+            <div className="profileButtons pt-2">
               <button
                 className="profileButton"
                 onClick={() => setFeed("profile")}

@@ -1,9 +1,9 @@
 .profileFeedContainer{
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .profileFeedCards{
     display: grid;
-    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-columns: 25% 25% 25% 25%;
     justify-content: space-between;
 }

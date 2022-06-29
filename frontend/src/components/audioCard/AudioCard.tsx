@@ -46,17 +46,17 @@ export default function AudioCard({
   };
 
   return (
-    <div className="audioCardContainer">
-      <div className="audioCardBox">
+    <div className="audioCardContainer mx-auto">
+      <div className="audioCardBox bg-slate-200 hover:bg-slate-300">
         <div className="audioCardImage">
           <img
             src={image || "https://i.imgur.com/POV3d3m.jpg"}
-            className="audioCardImageFile"
+            className="audioCardImageFile min-w-full"
           />
         </div>
         <div className="audioCardText">
-          <div className="audioCardTitle">{name}</div>
-          <div className="audioCardButton">
+          <div className="audioCardTitle text-lg font-medium">{name}</div>
+          <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
             {mode == "mint" && <button onClick={() => mint(id)}>Mint</button>}
             {mode == "view" && (
               <button onClick={() => handlePlayClick(id)}>

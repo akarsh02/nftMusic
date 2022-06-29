@@ -50,9 +50,3 @@
 .profileRightBottom{
     display: flex;
 }
-
-.profileButton{
-    padding: 10px;
-    width: 120px;
-    margin: 10px 10px 10px 0px;
-}

@@ -5,7 +5,6 @@
 }
 
 .homefeedBanner{
-    height: 400px;
     margin: 20px auto;
     border-style: solid;
     border-radius: 50px;
@@ -17,7 +16,6 @@
 }
 
 .homefeedTitle{
-    margin-top: 110px;
     text-align: center;
     color: white;
     font-size: 70px;
