@@ -2,27 +2,39 @@ import "./profile.css";
 import Topbar from "../../components/topbar/Topbar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
-import ProfileFeed from "../../components/profileFeed/ProfileFeed";
-import ProfileAlbums from "../../components/profileAlbums/ProfileAlbums";
-import Create from "../../components/create/Create";
-import ContractABI from "../../utils/audiopium.json";
+import ArtistContractABI from "../../utils/artist.json";
+import AudiopiumContractABI from "../../utils/audiopium.json";
+import { useUser } from "../../context/userContext";
 import { ethers } from "ethers";
-import ProfileSection from "../../components/profileSection/ProfileSection";
-import ProfileCreate from "../../components/profileCreate/ProfileCreate";
+import Skeleton from "@mui/material/Skeleton";
+import Create from "../../components/create/Create";
+import ProfileFeed from "../../components/profileFeed/ProfileFeed";
+import BasicModal from "../../components/modal/Modal";
 
-type ProfileStatus = "Loading" | "Profile" | "User";
+type ArtistDetails = {
+  artistName: string;
+  intro: string;
+  picture: string;
+  cover: string;
+};
 
 export default function Profile() {
-  const [audioContract, setAudioContract] = useState();
   const [feed, setFeed] = useState("profile");
-  const address = useParams().address;
-  const [showProfile, setShowProfile] = useState(false);
+  const [artistDetails, setArtistDetails] = useState<ArtistDetails>();
+  const [profilepicLoad, setProfilepicLoad] = useState(false);
+  const [coverpicLoad, setCoverpicLoad] = useState(false);
 
+  const [artistContractAvailable, setArtistContractAvailable] =
+    useState("loading");
+  const [isOwner, setIsOwner] = useState(false);
+
+  const artistContractAddress = useParams().address;
   const contractAddress = process.env.REACT_APP_CONTRACT_ADDRESS;
 
+  const { userCTX } = useUser();
+
   useEffect(() => {
-    const getContractAddress = async () => {
+    const getContractAddress = async (artistContractAddress: string) => {
       try {
         const { ethereum } = window;
 
@@ -30,37 +42,144 @@ export default function Profile() {
           const provider = new ethers.providers.Web3Provider(ethereum as any);
           const signer = provider.getSigner();
           const audiopiumContract = new ethers.Contract(
-            contractAddress,
-            ContractABI.abi,
+            artistContractAddress,
+            ArtistContractABI.abi,
             signer
           );
 
-          let audioContract = await audiopiumContract.getArtistContract(
-            address
-          );
-          console.log("Artist contract :", audioContract);
-          if (audioContract !== "0x0000000000000000000000000000000000000000") {
-            setAudioContract(audioContract);
-            setShowProfile(true);
+          let res = await audiopiumContract.getArtist();
+          console.log("Artist details :", res);
+          if (res.length) {
+            setArtistContractAvailable("true");
+            setArtistDetails(res);
           }
         } else {
-          console.log("Ethereum object doesn't exist!");
+          setArtistContractAvailable("false");
         }
       } catch (error) {
-        console.log(error);
+        console.log("Artist contract not found");
+        alert("Artist contract not found");
+        setArtistContractAvailable("false");
       }
     };
-    getContractAddress();
-  }, [address]);
+    if (artistContractAddress) {
+      getContractAddress(artistContractAddress);
+    }
+  }, [artistContractAddress]);
+
+  const checkIfOwner = async (artistContractAddress: string) => {
+    try {
+      const { ethereum } = window;
+
+      if (ethereum) {
+        const provider = new ethers.providers.Web3Provider(ethereum as any);
+        const signer = provider.getSigner();
+        const audiopiumContract = new ethers.Contract(
+          contractAddress,
+          AudiopiumContractABI.abi,
+          signer
+        );
+
+        let res = await audiopiumContract.getArtistContract(userCTX?.address);
+        console.log("Artist contract for", contractAddress, " :", res);
+        if (res !== "0x0000000000000000000000000000000000000000") {
+          setIsOwner(true);
+        }
+      }
+    } catch (error) {
+      console.log("Artist contract not found");
+    }
+  };
+
+  useEffect(() => {
+    if (artistContractAddress && artistContractAvailable === "true") {
+      checkIfOwner(artistContractAddress);
+    }
+  }, [artistContractAvailable, userCTX?.address]);
 
   return (
     <div>
       <Topbar />
-      {showProfile && audioContract ? (
-        <ProfileSection feed={feed} setFeed={setFeed} address={audioContract} />
-      ) : (
-        <ProfileCreate />
-      )}
+      {!userCTX?.address && <BasicModal />}
+      <div className="profile">
+        <div className="profileRight">
+          <div className="profileRightTop">
+            <div className="profileCover">
+              <img
+                className="profileCoverImg"
+                style={coverpicLoad ? {} : { display: "none" }}
+                src={"https://" + artistDetails?.cover + ".ipfs.dweb.link"}
+                onLoad={() => setCoverpicLoad(true)}
+                alt="Cover"
+              />
+              {!coverpicLoad && (
+                <Skeleton
+                  variant="rectangular"
+                  width={1000}
+                  height={250}
+                  className="skeltonRectangleCover"
+                />
+              )}
+              <img
+                className="profileUserImg"
+                style={coverpicLoad ? {} : { display: "none" }}
+                src={"https://" + artistDetails?.picture + ".ipfs.dweb.link"}
+                alt="Profile"
+              />
+              {!profilepicLoad && (
+                <Skeleton
+                  variant="circular"
+                  width={150}
+                  height={150}
+                  className="skeltonCircularProfilePicture"
+                />
+              )}
+            </div>
+            <div className="profileInfo">
+              <div className="profileInfoName font-bold">
+                {artistDetails?.artistName}
+              </div>
+              <span className="profileInfoDesc text-lg font-semibold">
+                {artistDetails?.intro}
+              </span>
+              {/* <span className="profileInfoDesc">
+                {"Audiopium contract " + artistContractAddress}
+              </span> */}
+            </div>
+            {!artistDetails && (
+              <div className="profileInfo">
+                <Skeleton variant="text" className="skeltonTitle" />
+                <Skeleton variant="text" className="skeltonIntro" />
+              </div>
+            )}
+            {isOwner && (
+              <div className="profileButtons pt-2">
+                <button
+                  className="profileButton"
+                  onClick={() => setFeed("profile")}
+                >
+                  Profile
+                </button>
+
+                <button
+                  className="profileButton"
+                  onClick={() => setFeed("create")}
+                >
+                  Add New Song
+                </button>
+              </div>
+            )}
+
+            {feed === "profile" && artistContractAddress && (
+              <ProfileFeed address={artistContractAddress} />
+            )}
+            {feed === "create" && artistContractAddress && (
+              <Create address={artistContractAddress} />
+            )}
+          </div>
+          <div className="profileRightBottom"></div>
+        </div>
+      </div>
     </div>
   );
 }

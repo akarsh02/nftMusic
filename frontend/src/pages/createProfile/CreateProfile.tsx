@@ -51,7 +51,7 @@ export default function CreateProfile() {
       const { ethereum } = window;
 
       if (!ethereum) {
-        alert("Get MetaMask!");
+        alert("Please install Metamask Wallet");
         return;
       }
 

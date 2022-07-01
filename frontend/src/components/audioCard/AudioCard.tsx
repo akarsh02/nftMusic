@@ -1,8 +1,10 @@
 import "./audioCard.css";
 import { ethers } from "ethers";
+import { useState } from "react";
 import AudioContractABI from "../../utils/artist.json";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import { useUser } from "../../context/userContext";
+import Skeleton from "@mui/material/Skeleton";
 
 type Props = {
   name: string;
@@ -23,6 +25,7 @@ export default function AudioCard({
   handlePlayClick,
 }: Props) {
   const { userCTX } = useUser();
+  const [picLoad, setPicLoad] = useState(false);
   const mint = async (id: number) => {
     try {
       const { ethereum } = window;
@@ -52,9 +55,14 @@ export default function AudioCard({
       <div className="audioCardBox bg-slate-200 hover:bg-slate-300">
         <div className="audioCardImage">
           <img
-            src={image || "https://i.imgur.com/POV3d3m.jpg"}
+            style={picLoad ? {} : { display: "none" }}
+            src={image}
             className="audioCardImageFile min-w-full"
+            onLoad={() => setPicLoad(true)}
           />
+          {!picLoad && (
+            <Skeleton variant="rectangular" className="min-w-full w-full" />
+          )}
         </div>
         <div className="audioCardText">
           <div className="audioCardTitle text-lg font-medium">{name}</div>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Topbar from "../../components/topbar/Topbar";
 import AudioCard from "../../components/audioCard/AudioCard";
 import "./myNFTs.css";
+import SkeltonGrid from "../../components/skeltonGrid/SkeltonGrid";
 
 type Song = {
   name: string;
@@ -63,7 +64,6 @@ export default function MyNFTs() {
   return (
     <div>
       <Topbar />
-
       <div className="mynftsContainer">
         <div className="mynftsBox">
           <div className="mynftsTitle">My NFTs</div>
@@ -86,6 +86,7 @@ export default function MyNFTs() {
                 />
               ))}
           </div>
+          {!myNFTs && <SkeltonGrid />}
         </div>
       </div>
       {/* <PlayBar song={nowPlaying} /> */}
