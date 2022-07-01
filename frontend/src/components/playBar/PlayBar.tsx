@@ -30,7 +30,7 @@ export default function PlayBar({ song }: Props) {
       const { ethereum } = window;
 
       if (!ethereum) {
-        alert("Get MetaMask!");
+        alert("Please install Metamask Wallet");
         return;
       }
 

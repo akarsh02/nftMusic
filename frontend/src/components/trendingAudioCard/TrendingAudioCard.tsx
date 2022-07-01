@@ -46,7 +46,7 @@ export default function TrendingAudioCard({
 
   return (
     <div className="mx-auto">
-      <Link to="/profile/0x2f23ca22e77ed6691aa4c945874d2d6eaf155a34">
+      <Link to="/profile/0xa213a2B1Ed4fdC755317633F6cBa8eCbA9aB6625">
         <div className=" bg-slate-200 hover:bg-slate-300 m-2 p-2 rounded-lg">
           <div className="">
             <img

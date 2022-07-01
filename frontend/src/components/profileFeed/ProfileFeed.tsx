@@ -1,10 +1,12 @@
 import { ethers } from "ethers";
 import AudioContractABI from "../../utils/artist.json";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StackTypeMap } from "@mui/material";
 import AudioCard from "../../components/audioCard/AudioCard";
 import { AudioFileOutlined } from "@mui/icons-material";
+import { Skeleton } from "@mui/material";
 import "./profileFeed.css";
+import SkeltonGrid from "../../components/skeltonGrid/SkeltonGrid";
 
 type Props = {
   address: string;
@@ -65,6 +67,7 @@ export default function ProfileFeed({ address }: Props) {
     };
     viewMetadata();
   }, [metadataURIs]);
+
   return (
     <div className="profileFeedContainer">
       <div className="profileFeedCards">
@@ -81,6 +84,7 @@ export default function ProfileFeed({ address }: Props) {
             />
           ))}
       </div>
+      {!songData && <SkeltonGrid />}
     </div>
   );
 }
