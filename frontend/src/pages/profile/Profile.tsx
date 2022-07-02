@@ -1,15 +1,15 @@
 import "./profile.css";
-import Topbar from "../../components/topbar/Topbar";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import ArtistContractABI from "../../utils/artist.json";
-import AudiopiumContractABI from "../../utils/audiopium.json";
-import { useUser } from "../../context/userContext";
 import { ethers } from "ethers";
 import Skeleton from "@mui/material/Skeleton";
+import { useUser } from "../../context/userContext";
+import Topbar from "../../components/topbar/Topbar";
 import Create from "../../components/create/Create";
 import ProfileFeed from "../../components/profileFeed/ProfileFeed";
 import BasicModal from "../../components/modal/Modal";
+import ArtistContractABI from "../../utils/artist.json";
+import AudiopiumContractABI from "../../utils/audiopium.json";
 
 type ArtistDetails = {
   artistName: string;

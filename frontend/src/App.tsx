@@ -1,12 +1,11 @@
-import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import CreateProfile from "./pages/createProfile/CreateProfile";
+import MyNFTs from "./pages/myNFTs/MyNFTs";
 import { UserProvider } from "./context/userContext";
 import { MoralisProvider } from "react-moralis";
-import "./App.css";
-import MyNFTs from "./pages/myNFTs/MyNFTs";
 
 function App() {
   const serverUrl = process.env.REACT_APP_SERVER_URL;
