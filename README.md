@@ -5,7 +5,7 @@
 Audiopium is a no-code smart contracts platform for music artists to create music NFTs. 
 Artists can deploy ERC-1155 smart contract using the frontend and add audio tracks as tokens to the smart contract. Fans able to buy music NFTs of their favourite artists and listen to them. 
 
-![audiopium](https://i.ibb.co/XWG9sqp/audiopium.png)
+![audiopium](https://i.ibb.co/Z2zXgyt/audiopiumss.png)
 
 Built using:
 React, Solidity, Hardhat, NFT.storage , Moralis Web3 API
