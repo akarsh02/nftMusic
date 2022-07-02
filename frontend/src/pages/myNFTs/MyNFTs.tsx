@@ -5,6 +5,7 @@ import Topbar from "../../components/topbar/Topbar";
 import AudioCard from "../../components/audioCard/AudioCard";
 import "./myNFTs.css";
 import SkeltonGrid from "../../components/skeltonGrid/SkeltonGrid";
+import Playbar from "../../components/playbar/Playbar";
 
 type Song = {
   name: string;
@@ -12,6 +13,8 @@ type Song = {
   image: string;
   song: string;
   id: number;
+  address: string;
+  token_id: string;
 };
 
 export default function MyNFTs() {
@@ -27,17 +30,26 @@ export default function MyNFTs() {
         chain: "mumbai",
         address: userCTX?.address,
       });
-
+      console.log(testnetNFTs);
       const dataArray: Song[] = [];
       if (testnetNFTs.result) {
         for (let i = 0; i < testnetNFTs?.result?.length; i++) {
           if (testnetNFTs.result[i].metadata) {
             const data: any = testnetNFTs.result[i].token_uri?.slice(34, 93);
+            const _address: string = testnetNFTs.result[i].token_address;
+            const _token_id: string = testnetNFTs.result[i].token_id;
             const res: any = await fetch(
               "https://" + data + ".ipfs.dweb.link/metadata.json"
             )
               .then((response) => response.json())
-              .then((data) => dataArray.push({ ...data, id: i }));
+              .then((data) =>
+                dataArray.push({
+                  ...data,
+                  id: i,
+                  address: _address,
+                  token_id: _token_id,
+                })
+              );
           }
         }
         setMyNFTs(dataArray);
@@ -74,8 +86,9 @@ export default function MyNFTs() {
                   mode="view"
                   key={s.id}
                   id={s.id}
+                  token_id={s.token_id}
                   name={s.name}
-                  address={""}
+                  address={s.address}
                   handlePlayClick={handlePlayClick}
                   image={
                     "https://" + s.image.slice(7, 66) + ".ipfs.dweb.link/blob"
@@ -89,7 +102,7 @@ export default function MyNFTs() {
           {!myNFTs && <SkeltonGrid />}
         </div>
       </div>
-      {/* <PlayBar song={nowPlaying} /> */}
+      {/* <Playbar /> */}
     </div>
   );
 }
