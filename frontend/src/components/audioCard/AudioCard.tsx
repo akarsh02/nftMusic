@@ -10,6 +10,7 @@ type Props = {
   name: string;
   image: string;
   id: number;
+  token_id: string;
   address: string;
   song: string;
   mode: "view" | "mint";
@@ -19,6 +20,7 @@ export default function AudioCard({
   name,
   image,
   id,
+  token_id,
   address,
   mode,
   song,
@@ -68,15 +70,45 @@ export default function AudioCard({
           <div className="audioCardTitle text-lg font-medium">{name}</div>
 
           {userCTX?.address && mode === "mint" && (
-            <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
-              <button onClick={() => mint(id)}>Mint</button>
+            <div className="flex">
+              <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
+                <button onClick={() => mint(id)}>Mint</button>
+              </div>
+              <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
+                <a
+                  href={
+                    "https://testnets.opensea.io/assets/mumbai/" +
+                    address +
+                    "/" +
+                    token_id
+                  }
+                  target="_blank"
+                >
+                  <button>View</button>
+                </a>
+              </div>
             </div>
           )}
           {mode === "view" && (
-            <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
-              <button onClick={() => mint(id)}>
-                <PlayCircleIcon />
-              </button>
+            <div className="flex">
+              <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
+                <button onClick={() => mint(id)}>
+                  <PlayCircleIcon />
+                </button>
+              </div>
+              <div className="audioCardButton bg-purple-500 hover:bg-purple-600 text-white max-w-fit p-2 px-4 rounded-lg mx-auto">
+                <a
+                  href={
+                    "https://testnets.opensea.io/assets/mumbai/" +
+                    address +
+                    "/" +
+                    token_id
+                  }
+                  target="_blank"
+                >
+                  <button>View</button>
+                </a>
+              </div>
             </div>
           )}
         </div>

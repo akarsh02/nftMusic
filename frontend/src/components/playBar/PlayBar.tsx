@@ -1,4 +1,4 @@
-import "./playBar.css";
+import "./playbar.css";
 import React from "react";
 import { Search, Person, Chat, Notifications } from "@mui/icons-material";
 import { Link } from "react-router-dom";
@@ -20,7 +20,7 @@ type Song = {
   id: number;
 };
 
-export default function PlayBar({ song }: Props) {
+export default function Playbar() {
   const [account, setAccount] = React.useState(null);
 
   const { userCTX, connectWalletCTX } = useUser();
@@ -50,7 +50,7 @@ export default function PlayBar({ song }: Props) {
     <div className="playbarContainer">
       <div className="playbarContent">
         <div className="playbarLeft">
-          <div className="playbarSongTitle">{song?.name}</div>
+          <div className="playbarSongTitle">Hello</div>
         </div>
         <div className="playbarCenter">
           <div className="playbarPlayButton">

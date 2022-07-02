@@ -57,7 +57,7 @@ export default function BasicModal() {
             <div className="font-semibold text-2xl">Wallet not connected</div>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Connect Metamask to sign in
+            Connect Metamask and choose Polygon Mumbai network.
           </Typography>
           <button className="profileButton" onClick={connectWallet}>
             Connect Wallet

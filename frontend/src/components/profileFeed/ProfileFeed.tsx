@@ -77,6 +77,7 @@ export default function ProfileFeed({ address }: Props) {
               mode="mint"
               key={s.id}
               id={s.id}
+              token_id={s.id.toString()}
               name={s.name}
               address={address}
               image={"https://" + s.image.slice(7, 66) + ".ipfs.dweb.link/blob"}
