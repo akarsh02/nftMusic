@@ -1,12 +1,12 @@
 import "./createProfile.css";
-import Topbar from "../../components/topbar/Topbar";
-import { TextField, Button } from "@mui/material";
 import { useEffect, useState } from "react";
-import { useUser } from "../../context/userContext";
 import { ethers } from "ethers";
-import AudiopiumContractABI from "../../utils/audiopium.json";
 import { NFTStorage, File, Blob } from "nft.storage";
 import { Navigate, Link } from "react-router-dom";
+import { TextField, Button } from "@mui/material";
+import { useUser } from "../../context/userContext";
+import Topbar from "../../components/topbar/Topbar";
+import AudiopiumContractABI from "../../utils/audiopium.json";
 
 type ArtistDetails = {
   name: string;

@@ -1,11 +1,10 @@
-import { useUser } from "../../context/userContext";
-import { useMoralisWeb3Api } from "react-moralis";
+import "./myNFTs.css";
 import { useEffect, useState } from "react";
+import { useMoralisWeb3Api } from "react-moralis";
+import { useUser } from "../../context/userContext";
 import Topbar from "../../components/topbar/Topbar";
 import AudioCard from "../../components/audioCard/AudioCard";
-import "./myNFTs.css";
 import SkeltonGrid from "../../components/skeltonGrid/SkeltonGrid";
-import Playbar from "../../components/playbar/Playbar";
 
 type Song = {
   name: string;
