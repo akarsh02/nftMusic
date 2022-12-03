@@ -1,21 +1,21 @@
-.audioCardContainer{
+.audioCardContainer {
     padding: 10px;
 }
 
-.audioCardBox{
+.audioCardBox {
     border-radius: 10px;
     padding: 10px;
 }
 
-.audioCardImageFile{
+.audioCardImageFile {
     width: 100%;
 }
 
-.audioCardTitle{
+.audioCardTitle {
     text-align: center;
 }
 
-.audioCardButton{
+.audioCardButton {
     margin-top: 5px;
     text-align: center;
 }

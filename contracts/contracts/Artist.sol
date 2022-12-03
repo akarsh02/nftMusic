@@ -12,7 +12,6 @@ contract Artist is ERC1155, Ownable {
         string picture;
         string cover;
     }
-
     Artist public artist;
     string public name;
     string public symbol;

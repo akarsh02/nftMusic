@@ -17,7 +17,6 @@ contract Audiopium {
             new Audio(_name, _intro, _picture, _cover, msg.sender)
         );
     }
-
     function getArtistContract(address _artist) public view returns (address) {
         return ArtistContracts[_artist];
     }

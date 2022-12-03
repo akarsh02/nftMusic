@@ -1,84 +1,84 @@
-.createNewButton{
+.createNewButton {
     padding: 10px;
     width: 150px;
     margin: 10px 10px 10px 0px;
 }
 
-.createNewAlbumBox{
+.createNewAlbumBox {
     border-style: solid;
     border-radius: 20px;
 }
 
-.createTitle{
+.createTitle {
     text-align: center;
     font-size: x-large;
     font-weight: bold;
 }
 
-.createAlbumDetails{
+.createAlbumDetails {
     display: flex;
 }
 
-.createAlbumImage{
+.createAlbumImage {
     flex: 1;
     padding: 10px
 }
 
-.createAlbumDetailsBox{
+.createAlbumDetailsBox {
     flex: 3;
 }
 
-.createAlbumDetailsBox{
-display: flex;
-flex-direction: column;
-justify-content: space-around;
+.createAlbumDetailsBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     padding: 10px
 }
 
-.createAlbumDetailsSaveButtonRow{
+.createAlbumDetailsSaveButtonRow {
     display: flex;
     justify-content: flex-end;
 }
 
-.createAlbumDetailsButton{
+.createAlbumDetailsButton {
     padding: 10px;
     width: 120px;
 }
 
-.createTextfield{
+.createTextfield {
     width: 400px;
 }
 
-.createTrackImage{
+.createTrackImage {
     padding: 10px;
 }
 
-.createTrackImageFile{
+.createTrackImageFile {
     height: 150px;
 }
 
-.createSave{
+.createSave {
     display: flex;
     justify-content: flex-end;
 }
 
-.createSaveButton{
+.createSaveButton {
     padding: 10px;
-    margin : 10px;
+    margin: 10px;
     width: 120px;
 }
 
-.createAddNewTrack{
+.createAddNewTrack {
     display: flex;
     justify-content: center;
 }
 
-.createAddNewTrackButton{
+.createAddNewTrackButton {
     padding: 10px;
-    margin : 10px;
+    margin: 10px;
 }
 
-.CreateSongImageFile{
+.CreateSongImageFile {
     width: 300px;
     height: 300px;
 }
